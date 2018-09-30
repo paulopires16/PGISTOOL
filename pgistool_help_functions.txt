@@ -1,0 +1,478 @@
+help function from pgistool
+
+Func: addpoints2lines 
+Desc: adiciona pontos que se intersetam com linhas a propria linha 
+Parm: addpoints2lines dbName portNumber schema userName passw shpFileLines shpFilePoints 
+
+Func: addvertexintersection 
+Desc: adiciona vertices nas intersecoes do elementos (aceita qualquer geometria) 
+Parm: addvertexintersection dbName portNumber schema userName passw shpfile shpblade 
+
+Func: addzpointbypolygon 
+Desc: eleva a coordenada Z dos pontos com a media do Z das areas (intersecao) 
+Parm: addzpointbypolygon dbName portNumber schema userName passw shpPoints shpAreas 
+
+Func: areadifferencearea 
+Desc: calcula a diferenca da shpFileAreas1 que não pertence a shpFileAreas2 
+Parm: areadifferencearea dbName portNumber schema userName passw shpFileAreas1 shpFileAreas2 
+
+Func: areaintersectarea 
+Desc: calcula as areas de intersecao entre duas shapefiles de Polygons 
+Parm: areaintersectarea dbName portNumber schema userName passw shpFileAreas1 shpFileAreas2 
+
+Func: areaoverlaparea 
+Desc: calcula as areas em Overlap ou Contain e nao Touches 
+Parm: areaoverlaparea dbName portNumber schema userName passw shpFileAreas1 shpFileAreas2 
+
+Func: areaselfintersectarea 
+Desc: calcula as areas de intersecao numa mesma shapefile de Polygons 
+Parm: areaselfintersectarea dbName portNumber schema userName passw shpFileAreas 
+
+Func: areaselfunion 
+Desc: calcula a uniao das areas que se intersetam 
+Parm: areaselfunion dbName portNumber schema userName passw shpFileAreas 
+
+Func: areasymdifferencearea 
+Desc: calcula a diferenca da intersecao 
+Parm: areasymdifferencearea dbName portNumber schema userName passw shpFileAreas1 shpFileAreas2 
+
+Func: areaunionarea 
+Desc: calcula a uniao de areas 
+Parm: areaunionarea dbName portNumber schema userName passw shpFileAreas1 shpFileAreas2 
+
+Func: areawithinarea 
+Desc: calcula as areas da shapefile1 que estao completamente contidas dentro da shapefile2 
+Parm: areawithinarea dbName portNumber schema userName passw shpFileAreas1 shpFileAreas2 
+
+Func: areawithoutlinedist 
+Desc: calcula as areas sem linhas numa determinada distancia 
+Parm: areawithoutlinedist dbName portNumber schema userName passw shpFileAreas shpFileLines dist 
+
+Func: breakedge 
+Desc: adiciona vertices em todos as intersecoes, valido para LineStrings e Polygons 
+Parm: breakedge dbName portNumber schema userName passw shpFileAreas 
+
+Func: centerline 
+Desc: cria uma linha central relativamente a outras 2 linhas (auto-estrada) de uma shp (shpFile) 
+Parm: centerline dbName portNumber schema userName passw shpFile 
+
+Func: changedim 
+Desc: altera a dimensao das coordenadas para dim (XY|XYZ|XYM|XYZM) 
+Parm: changedim dbName portNumber schema userName passw shpFileLines dim 
+
+Func: changeschemasrid 
+Desc: transformacao de coordenadas de todas as tabelas dentro do schema 
+Parm: changeschemasrid dbName portNumber schema userName passw epsg 
+
+Func: changetablesrid 
+Desc: transformacao de coordenadas de uma tabela 
+Parm: changetablesrid dbName portNumber schema table userName passw epsg 
+
+Func: cleangeometries 
+Desc: remove geometrias nulas e geometrias duplicadas 
+Parm: cleangeometries dbName portNumber schema userName passw shpFile 
+
+Func: convergelines 
+Desc: procura e elimina linhas < dist, calcula ponto medio e converge restantes linhas ligadas a esses pequenos trocos 
+Parm: convergelines dbName portNumber schema userName passw shpfile dist 
+
+Func: correctvertexzzero 
+Desc: identifica os vertices (pontos) das geometrias com Z = 0 e corrige com a media do ponto anterior e ponto seguinte 
+Parm: correctvertexzzero dbName portNumber schema userName passw shpfile 
+
+Func: createdatabase 
+Desc: cria a database (dbName) na porta (portNumber) com o schema com determinado userName e passw 
+Parm: createdatabase dbName portNumber schema userName passw 
+
+Func: delareazero 
+Desc: elimina poligonos com area zero 
+Parm: delareazero dbName portNumber schema userName passw shpFileAreas 
+
+Func: deldangle 
+Desc: elimina linhas (pontas) soltas com uma determinada distancia (dist) 
+Parm: deldangle dbName portNumber schema userName passw shpFileLines shpFileflagdangle dist 
+
+Func: deldupnode 
+Desc: elimina vertices coincidentes de linhas ou poligonos 
+Parm: deldupnode dbName portNumber schema userName passw shpFile 
+
+Func: delholesarea 
+Desc: remove os buracos (holes) dos Polygonos 
+Parm: delholesarea dbName portNumber schema userName passw shpFilePoly 
+
+Func: dellengthzero 
+Desc: elimina linhas de comprimento zero 
+Parm: dellengthzero dbName portNumber schema userName passw shpFileLines 
+
+Func: dellinearea 
+Desc: elimina linhas dentro de poligonos 
+Parm: dellinearea dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: delpointarea 
+Desc: elimina pontos dentro de poligonos 
+Parm: delpointarea dbName portNumber schema userName passw shpFilePoints shpFileAreas 
+
+Func: delpointi 
+Desc: elimina pontos intermedios a uma determinada distancia (dist) 
+Parm: delpointi dbName portNumber schema userName passw shpFilePoints dist 
+
+Func: downloadschema 
+Desc: faz o download de um schema (schema) para uma diretoria (shpDirOut) da database (dbName) na porta (portNumber) com o schema com determinado userName e passw 
+Parm: downloadschema dbName portNumber schema userName passw shpDirOut 
+
+Func: downloadtable 
+Desc: faz o download de uma tabela (tableName) para uma diretoria (shpDirOut) da database (dbName) na porta (portNumber) com o schema com determinado userName e passw 
+Parm: downloadtable dbName portNumber schema userName passw tableName shpDirOut 
+
+Func: dropallconndatabase 
+Desc: fecha todas as conexoes a database (dbName) na porta (portNumber) com o schema com determinado userName e passw 
+Parm: dropallconndatabase dbName portNumber schema userName passw 
+
+Func: dropdatabase 
+Desc: elimina a database (dbName) na porta (portNumber) com o schema com determinado userName e passw 
+Parm: dropdatabase dbName portNumber schema userName passw 
+
+Func: dumpdatabase 
+Desc: faz o dump completo da base de dados para um ficheiro 
+Parm: dumpdatabase dbName portNumber schema userName passw backupdir 
+
+Func: extendlines2areas 
+Desc: extende as linhas segundo o azimute do ultimo segmento e uma determinada distancia (dist), se intersetadas com LineString ou Polygon 
+Parm: extendlines2areas dbName portNumber schema userName passw shpFileLines shpFileAreas dist 
+
+Func: extendselflines 
+Desc: extende as linhas segundo o azimute do ultimo segmento e uma determinada distancia (dist), se intersetadas com LineString 
+Parm: extendselflines dbName portNumber schema userName passw shpFileLines dist 
+
+Func: extractclosecontour 
+Desc: extrai as linhas fechadas e interiores 
+Parm: extractclosecontour dbName portNumber schema userName passw shpLines 
+
+Func: extractdelcontour 
+Desc: extrai as linhas (apagas as linhas na shp original) cuja coordenada Z se encontram dentro do intervalo 
+Parm: extractdelcontour dbName portNumber schema userName passw shpLines minZ maxZ distZ 
+
+Func: extractdelvertexzzero 
+Desc: extrai geometrias com algum vertice com Z = 0 
+Parm: extractdelvertexzzero dbName portNumber schema userName passw shpfile 
+
+Func: extractdelzzero 
+Desc: extrai geometrias (remove na origem) com todos os Z = 0 
+Parm: extractdelzzero dbName portNumber schema userName passw shpfile 
+
+Func: flagareawithoutpoint 
+Desc: identifica areas sem pontos no seu interior 
+Parm: flagareawithoutpoint dbName portNumber schema userName passw shpFileAreas shpFilePoints 
+
+Func: flagareawithpoint 
+Desc: identifica areas com pontos no seu interior 
+Parm: flagareawithpoint dbName portNumber schema userName passw shpFileAreas shpFilePoints 
+
+Func: flagdangle 
+Desc: identifica (pontos) linhas (pontas) soltas 
+Parm: flagdangle dbName portNumber schema userName passw shpFileLines shpFileAreas shpFilePoints 
+
+Func: flagendnodearea 
+Desc: identifica os pontos finais das linhas dentro dos poligonos 
+Parm: flagendnodearea dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: flagholesarea 
+Desc: identifica o vertice inicial (ponto) dos polygonos cuja area < areavalue 
+Parm: flagholesarea dbName portNumber schema userName passw shpFilePoly areavalue 
+
+Func: flagisolated 
+Desc: extrair geometrias isoladas 
+Parm: flagisolated dbName portNumber schema userName passw shpPoints shpLines shpAreas 
+
+Func: flagkink 
+Desc: identifica (pontos) Kinks e Kick backs com angulo menores que angle 
+Parm: flagkink dbName portNumber schema userName passw shpFile angle 
+
+Func: flaglinearea 
+Desc: identifica (pontos) linhas dentro de poligonos 
+Parm: flaglinearea dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: flaglinecrossesline 
+Desc: calcula os pontos de intersecao entre duas shapefiles de LineStrings 
+Parm: flaglinecrossesline dbName portNumber schema userName passw shpFileLines1 shpFileLines2 
+
+Func: flaglooparea 
+Desc: identifica (pontos) as self-intersections em Polygons 
+Parm: flaglooparea dbName portNumber schema userName passw shpFileAreas 
+
+Func: flagloopline 
+Desc: identifica (pontos) as self-intersections em LineStrings 
+Parm: flagloopline dbName portNumber schema userName passw shpFileLines 
+
+Func: flagminarea 
+Desc: assinala areas inferiores a um determinado valor (minarea) 
+Parm: flagminarea dbName portNumber schema userName passw shpFile    minarea 
+
+Func: flagnotvalid 
+Desc: identifica as geometrias nao validas 
+Parm: flagnotvalid dbName portNumber schema userName passw shpFile 
+
+Func: flagnull 
+Desc: verifica a existencia de valores NULL ou '' ou ' ' em todos os atributos (sem attrib) ou apenas um (com attrib) 
+Parm: flagnull dbName portNumber schema userName passw shpfile attrib 
+
+Func: flagopen 
+Desc: identifica as geometrias abertas (ponto inicial não coincide com ponto final) 
+Parm: flagopen dbName portNumber schema userName passw shpFile 
+
+Func: flagoutrangeattr 
+Desc: extrai geometrias cujo valor do atributo esta fora do intervalo 
+Parm: flagoutrangeattr dbName portNumber schema userName passw shpfile fieldname fieldvaluemin fielvaluemax 
+
+Func: flagpointarea 
+Desc: identifica pontos dentro de poligonos 
+Parm: flagpointarea dbName portNumber schema userName passw shpFilePoints shpFileAreas 
+
+Func: flagpointdistance 
+Desc: identifica os pontos a uma determinada distancia 
+Parm: flagpointdistance dbName portNumber schema userName passw shpFilePoints dist 
+
+Func: flagpointextarea 
+Desc: identifica pontos fora de poligonos 
+Parm: flagpointextarea dbName portNumber schema userName passw shpFilePoints shpFileAreas 
+
+Func: flagpointintarea 
+Desc: identifica pontos dentro de poligonos 
+Parm: flagpointintarea dbName portNumber schema userName passw shpFilePoints shpFileAreas 
+
+Func: flagpointline 
+Desc: identifica pontos a uma distancia (dist) de linhas. Option(0): pontos a menos de distancia, Option(1): pontos a mais de distancia 
+Parm: flagpointline dbName portNumber schema userName passw shpFilePoints shpFileLines dist option 
+
+Func: flagtincontour 
+Desc: identifica pontos das curvas de nivel superiores a uma determinada distancia em Z (distZ) 
+Parm: flagtincontour dbName portNumber schema userName passw shpLines distZ 
+
+Func: flagtinspotcontour 
+Desc: identifica erros nas curvas de nivel e pontos de cota 
+Parm: flagtinspotcontour dbName portNumber schema userName passw shpLines shpPoints distZ 
+
+Func: flagtinspotcrosstwice 
+Desc: identifica erros especificos nos pontos de cota (correr primeiro o joinline) 
+Parm: flagtinspotcrosstwice dbName portNumber schema userName passw shpLines shpPoints distZ 
+
+Func: flagvertexzzero 
+Desc: identifica os vertices (pontos) das geometrias com Z = 0 
+Parm: flagvertexzzero dbName portNumber schema userName passw shpfile 
+
+Func: flagzcontour 
+Desc: identifica pontos das curvas de nivel que nao se encontram dentro do intervalo em Z 
+Parm: flagzcontour dbName portNumber schema userName passw shpLines minZ maxZ distZ 
+
+Func: flagzespeccontour 
+Desc: identifica pontos das curvas de nivel que se encontram dentro do intervalo em Z 
+Parm: flagzespeccontour dbName portNumber schema userName passw shpLines minZ maxZ distZ 
+
+Func: flatspotheigth 
+Desc: arredonda a coordenada Z nos pontos cujo valor inteiro termina em 0 e o valor decimal <= 0.494 
+Parm: flatspotheigth dbName portNumber schema userName passw shpPoints 
+
+Func: help 
+Desc: print de todas as funcoes 
+Parm: help 
+
+Func: helpbat 
+Desc: cria o ficheiro pgistool.bat 
+Parm: helpbat 
+
+Func: holesarea 
+Desc: obtem os buracos (ordenados) dos polygonos cuja area < areavalue. Se areavalue = -1, obtem todos os buracos 
+Parm: holesarea dbName portNumber schema userName passw shpFilePoly areavalue 
+
+Func: joinline 
+Desc: junta todas as linhas ate aos cruzamentos/entroncamentos (opcao: juntar por atributos, se digitados) 
+Parm: joinline dbName portNumber schema userName passw shpFile "field1,field2" 
+
+Func: line2linesegment 
+Desc: converte linhas em segmentos de linha 
+Parm: line2linesegment dbName portNumber schema userName passw shpFile 
+
+Func: line2points 
+Desc: converte linhas em pontos 
+Parm: line2points dbName portNumber schema userName passw shpFile 
+
+Func: lineallinsidearea 
+Desc: identifica as linhas completamente contidas em Polygons 
+Parm: lineallinsidearea dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: linealloutsidearea 
+Desc: identifica as linhas completamente fora de Polygons 
+Parm: linealloutsidearea dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: linecoincidentline 
+Desc: calcula as linhas coincidentes (edges) entre duas shapefiles de LineStrings 
+Parm: linecoincidentline dbName portNumber schema userName passw shpFileLines1 shpFileLines2 
+
+Func: linecrossesarea 
+Desc: calcula as linhas dentro das areas 
+Parm: linecrossesarea dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: linedifferencearea 
+Desc: calcula a diferenca das linhas na intersecao entre uma shapefile de LineStrings e uma shapefile de Polygons 
+Parm: linedifferencearea dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: linedifferenceline 
+Desc: calcula as diferenca das linhas 
+Parm: linedifferenceline dbName portNumber schema userName passw shpFileLines1 shpFileLines2 
+
+Func: lineintersectarea 
+Desc: calcula as linhas de intersecao entre uma shapefile de LineStrings e uma shapefile de Polygons 
+Parm: lineintersectarea dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: lines2areasord 
+Desc: converte linhas em poligonos, caso existam linhas cuja intersacao formam poligonos 
+Parm: lines2areasord dbName portNumber schema userName passw shpFileLines 0 
+
+Func: linesdensify 
+Desc: densifica linhas segundo uma distancia (dist) 
+Parm: linesdensify dbName portNumber schema userName passw shpFileLines dist 
+
+Func: lineselfcoincidentline 
+Desc: calcula os linhas coincidentes (edges) numa mesma shapefile de LineStrings 
+Parm: lineselfcoincidentline dbName portNumber schema userName passw shpFileLines 
+
+Func: lineselfcrossesline 
+Desc: calcula os pontos de intersecao numa mesma shapefile de LineStrings 
+Parm: lineselfcrossesline dbName portNumber schema userName passw shpFileLines 
+
+Func: linewithoutareadist 
+Desc: calcula as linhas sem areas numa determinada distancia 
+Parm: linewithoutareadist dbName portNumber schema userName passw shpFileLines shpFileAreas dist 
+
+Func: movefeature 
+Desc: move geometrias segundo um deltax deltay deltaz 
+Parm: movefeature dbName portNumber schema userName passw shpfile deltax deltay deltaz 
+
+Func: movefeatureattr 
+Desc: move geometrias segundo valor dos atributos 
+Parm: movefeatureattr dbName portNumber schema userName passw shpfile fieldnamex fieldnamey fieldnamez 
+
+Func: movefeatureattrz 
+Desc: move geometrias segundo valor de um atributo 
+Parm: movefeatureattrz dbName portNumber schema userName passw shpfile fieldnamez 
+
+Func: movepoint2line 
+Desc: move pontos para a linha mais proxima que esteja a uma determinada distancia 
+Parm: movepoint2line dbName portNumber schema userName passw shpPoints shpLines dist 
+
+Func: movepoint2point 
+Desc: move pontos para o ponto mais proximo que esteja a uma determinada distancia 
+Parm: movepoint2point dbName portNumber schema userName passw shpPoints1 shpPoints2 dist 
+
+Func: movepoint2polygon 
+Desc: move pontos para a linha exterior das areas que estejam a uma determinada distancia 
+Parm: movepoint2polygon dbName portNumber schema userName passw shpPoints shpAreas dist 
+
+Func: multi2simple 
+Desc: converte multigeometrias em geometrias simples (pontos, linhas e poligonos) 
+Parm: multi2simple dbName portNumber schema userName passw shpFile 
+
+Func: normalizegeom 
+Desc: remove spikes e normaliza geometrias com thresholds (area angle pointdist nullarea) 
+Parm: normalizegeom dbName portNumber schema userName passw shpFilePolygonLine area angle pointdist nullarea 
+
+Func: polygon2line 
+Desc: converte poligonos em linhas 
+Parm: polygon2line dbName portNumber schema userName passw shpFile 
+
+Func: polygon2linesegment 
+Desc: converte poligonos segmentos de linha 
+Parm: polygon2linesegment dbName portNumber schema userName passw shpFile 
+
+Func: polygon2points 
+Desc: converte poligonos em pontos 
+Parm: polygon2points dbName portNumber schema userName passw shpFile 
+
+Func: polygonzmode 
+Desc: corrige a coordenada Z de um poligono com a moda de todos os Z desse poligono 
+Parm: polygonzmode dbName portNumber schema userName passw shpFile 
+
+Func: postgisversion 
+Desc: versao completa do postgis 
+Parm: postgisversion 
+
+Func: postgresqlversion 
+Desc: versao postgresql 
+Parm: postgresqlversion 
+
+Func: removesliversgaps 
+Desc: remove overlaps e gaps entre poligonos. Gaps menores que areagaps. 
+Parm: removesliversgaps dbName portNumber schema userName passw shpfile areagaps 
+
+Func: restoredatabase 
+Desc: faz o restore de uma base de dados a partir de um ficheiro 
+Parm: restoredatabase dbName portNumber schema userName passw backupfile 
+
+Func: roundprecision 
+Desc: arredonta a precisao das coordenadas (x,y,z) segundo numero de casas decimais (precision: 0-8) 
+Parm: roundprecision dbName portNumber schema userName passw shpFileLines precision 
+
+Func: simplifytopology 
+Desc: simplifica poligonos segundo uma distancia (dist) preservando a relacao topologica entre os elementos 
+Parm: simplifytopology dbName portNumber schema userName passw shpfile dist 
+
+Func: snapdangles2points 
+Desc: snap linhas a pontos segundo uma distancia (altera ponto inicial/final da linha, matem Z) 
+Parm: snapdangles2points dbName portNumber schema userName passw shpFileLines shpFilePoints dist 
+
+Func: snapgaps 
+Desc: faz o snap de gaps (eliminar gaps entre poligonos) 
+Parm: snapgaps dbName portNumber schema userName passw shpFilePolygon dist 
+
+Func: snappoints2lines 
+Desc: snap pontos a linhas segundo uma distancia (cria vertices nas linhas) 
+Parm: snappoints2lines dbName portNumber schema userName passw shpFilePoints shpFileLines dist 
+
+Func: snapslivers 
+Desc: faz o snap de slivers (eliminar slivers entre poligonos) 
+Parm: snapslivers dbName portNumber schema userName passw shpFilePolygon dist 
+
+Func: splitline 
+Desc: parte linhas nas intersecoes 
+Parm: splitline dbName portNumber schema userName passw shpFileLines 
+
+Func: splitlinesandareas 
+Desc: parte linhas e poligonos nas intersecoes 
+Parm: splitlinesandareas dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: splitlinesbyareas 
+Desc: parte linhas nas intersecoes com poligonos 
+Parm: splitlinesbyareas dbName portNumber schema userName passw shpFileLines shpFileAreas 
+
+Func: topolineclean 
+Desc: cria relacao topologica de linhas (sem undershots e overshoots), com distancia (distClean) 
+Parm: topolineclean dbName portNumber schema userName passw shpLines dist 
+
+Func: topolinecleansimplify 
+Desc: cria relacao topologica de linhas (sem undershots e overshoots), com distancia (distClean) com corte nas intersecoes e simplificacao mediante distancia (distSimplify) 
+Parm: topolinecleansimplify dbName portNumber schema userName passw shpLines distClean distSimplify 
+
+Func: topolinecleansplit 
+Desc: cria relacao topologica de linhas (sem undershots e overshoots), com distancia (distClean) com corte nas intersecoes 
+Parm: topolinecleansplit dbName portNumber schema userName passw shpLines dist 
+
+Func: uploadshpFile 
+Desc: faz o upload de uma shp (shpFileIn) para a database (dbName) na porta (portNumber) com o schema com determinado userName e passw 
+Parm: uploadshpFile dbName portNumber schema userName passw shpFileIn 
+
+Func: uploadshpdiretory 
+Desc: faz o upload das shp de uma diretoria (shpDirIn) para a database (dbName) na porta (portNumber) com o schema com determinado userName e passw 
+Parm: uploadshpdiretory dbName portNumber schema userName passw shpDirIn 
+
+Func: validgeom 
+Desc: faz a validacao de todas as geometrias (empty geometries, self-intersection, invalid geometries) com relatorio (1) ou sem (0) 
+Parm: validgeom dbName portNumber schema userName passw shpFile 0 
+
+Func: validmuros 
+Desc: valida os muros em relacao as vias segundo uma distancia (+10, -10, etc) 
+Parm: validmuros dbName portNumber schema userName passw shpmuros shpvias dist 
+
+
+...Done!
+
+Tempo de execucao: 0:00:00.512000
